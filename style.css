@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.page1 {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+}
+
+.video-page1 {
+    width: 100vw;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 4s ease-in;
+}
+
+.video-page1.loaded {
+    opacity: 0.4;
+    /* Opacidade final após o carregamento */
+}
+
+/* Animação para o texto */
+@keyframes slideIn {
+    0% {
+        transform: translateY(50px);
+        /* Começa deslocado para baixo */
+        opacity: 0;
+        /* Invisível */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* Chega na posição final */
+        opacity: 1;
+        /* Totalmente visível */
+    }
+}
+
+.text {
+    position: absolute;
+    margin-top: 10%;
+    bottom: 60%;
+    left: 5%;
+    width: 50%;
+    height: 30%;
+    z-index: 3;
+    animation: slideIn 2s ease-out;
+    /* Aplica a animação */
+}
+
+.text-titulo {
+    color: #ffffff;
+    font-size: 50px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.text-descricao {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    /* Sombra preta */
+}
+
+
+/*.button-zap {
+    background-color: rgb(65, 231, 32);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}*/
+
+/*.button-info {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}*/
+
+/* pagina sobre nos */
+
+.page2 {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+}
+
+.video-page2 {
+    width: 100vw;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity 4s ease-in;
+}
+
+.video-page2,.loaded {
+    opacity: 0.4;
+}
+
+
+.text1-page2 {
+    position: absolute;
+    margin-top: 55%;
+    bottom: 20%;
+    left: 4%;
+    width: 50%;
+    height: 20%;
+    z-index: 3;
+    animation: slideIn 2s ease-out;
+    /* Aplica a animação */
+}
+
+.text1-titulo-page2 {
+    color: #ffffff;
+    font-size: 50px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    
+}
+
+.text1-descricao-page2 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    /* Sombra preta */
+}
+/*.button-promo {
+    background-color: rgb(214, 8, 8);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+} */
+.text2-page2 {
+    position: absolute;
+    bottom: 10%;
+    left: 4%;
+    width: 50%;
+    height: 10%;
+    z-index: 3;
+    animation: slideIn 2s ease-out;
+    /* Aplica a animação */
+}
+
+.text2-titulo-page2 {
+    color: #ffffff;
+    font-size: 50px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    
+}
+
+.text2-descricao-page2 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+    /* Sombra preta */
+}
