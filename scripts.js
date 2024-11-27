@@ -11,28 +11,25 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Função para verificar se o elemento está visível na janela de visualização
     function isElementInViewport(el) {
-      const rect = el.getBoundingClientRect();
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
     }
   
     // Aplica o efeito de rolagem aos textos
-    const textElements = document.querySelectorAll(".text, .text1-page2, .text2-page2");
+    const textElements = document.querySelectorAll(".text, .text1-page2, .text2-page2, .text1-page3");
   
     function handleScroll() {
-      textElements.forEach((element) => {
-        if (isElementInViewport(element)) {
-          element.classList.add("visible");
-        }
-      });
+        textElements.forEach((element) => {
+            if (isElementInViewport(element)) {
+                element.classList.add("visible");
+            }
+        });
     }
   
     // Executa ao carregar e ao rolar
     handleScroll();
     window.addEventListener("scroll", handleScroll);
-  });
-  
+});
