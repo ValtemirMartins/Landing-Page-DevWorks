@@ -12,7 +12,7 @@ body {
     height: 100vh;
   }
   
-  .video-page1, .video-page2 {
+  .video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -20,29 +20,16 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
-    opacity: 0;
-    transition: opacity 4s ease-in;
-  }
-  .video-page1.loaded, .video-page2.loaded {
-    opacity: 1; /* Visível após carregar */
-  }
-  
-  @keyframes slideIn {
-    0% {
-        transform: translateY(50px);
-        /* Começa deslocado para baixo */
-        opacity: 0;
-        /* Invisível */
-    }
-
-    100% {
-        transform: translateY(0);
-        /* Chega na posição final */
-        opacity: 1;
-        /* Totalmente visível */
-    }
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 2s ease-in-out;
 }
-  .video-page1.loaded {
+
+.video.loaded {
+    opacity: 1; /* Vídeo visível após carregado */
+}
+  
+
+  .video.loaded {
     opacity: 0.4;
     /* Opacidade final após o carregamento */
 }
@@ -59,13 +46,38 @@ body {
     height: 100%;
   }
   
-  .text, .text1-page2, .text2-page2, .text1-page3 {
+  /* Estilização geral */
+.text, .text1-page2, .text2-page2, .text1-page3 {
     position: absolute;
     z-index: 3;
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    left: 5%;
-    width: 80%;
+    left: 4%;
+    width: 75%;
+    opacity: 0; /* Começa invisível */
+    transform: translateX(-100%); /* Começa fora da tela à esquerda */
+    animation: slideIn 2.5s ease-out forwards; /* Aplica a animação */
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%); /* Começa fora da tela */
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); /* Chega na posição final */
+      opacity: 1;
+    }
+  }
+  
+  /* Especificando animações para diferentes textos, caso você queira ajustar o tempo de cada um */
+  
+  .text1-page2 {
+    animation-delay: 0.5s; /* Atrasa a animação para o próximo texto */
+  }
+  
+  .text2-page2 {
+    animation-delay: 1s; /* Atrasa a animação ainda mais */
   }
   
   /* Página 1 */
@@ -108,9 +120,8 @@ body {
   /* Página 3 */
   .text1-page3 {
     position: absolute;
-    top: 30%; /* Centralizado verticalmente */
-    left: 72%; /* Posiciona o texto começando do meio da tela */
-    transform: translateX(-50%); /* Move o texto para a direita, garantindo que ele esteja na metade direita */
+    top: 30%; 
+    left: 45%; 
     width: 50%; /* Largura do texto */
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Para melhorar a legibilidade */
@@ -120,24 +131,71 @@ body {
     margin-top: 5%;
   }
 
-  .h1-page3 {
+/* Estilizando o título da promoção */
+.h1-page3 {
     text-align: center;
     font-size: 3em;
     margin: 10px 0;
+    color: #FF0000; /* Cor natalina vermelha */
+    text-shadow: 0 0 10px #fff, 0 0 20px #FF0000; /* Efeito de brilho */
+    animation: pulseRed 1.5s infinite ease-in-out;
   }
   
+  /* Estilizando o subtítulo ou descrição */
   .h3-page3 {
     text-align: center;
     font-size: 2em;
     margin-bottom: 10px;
+    color: #32CD32; /* Cor natalina verde */
+    text-shadow: 0 0 10px #fff, 0 0 20px #32CD32; /* Efeito de brilho */
+    animation: pulseGreen 1.5s infinite ease-in-out;
   }
+  
+  /* Animação pulsante para o título em vermelho */
+  @keyframes pulseRed {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+      text-shadow: 0 0 10px #fff, 0 0 20px #FF0000;
+    }
+    50% {
+      transform: scale(1.1); /* Aumenta um pouco o tamanho */
+      opacity: 1.2; /* Aumenta a opacidade */
+      text-shadow: 0 0 20px #fff, 0 0 30px #FF0000;
+    }
+    100% {
+      transform: scale(1); /* Volta ao tamanho original */
+      opacity: 1;
+      text-shadow: 0 0 10px #fff, 0 0 20px #FF0000;
+    }
+  }
+  
+  /* Animação pulsante para o subtítulo em verde */
+  @keyframes pulseGreen {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+      text-shadow: 0 0 10px #fff, 0 0 20px #32CD32;
+    }
+    50% {
+      transform: scale(1.1); /* Aumenta um pouco o tamanho */
+      opacity: 1.2; /* Aumenta a opacidade */
+      text-shadow: 0 0 20px #fff, 0 0 30px #32CD32;
+    }
+    100% {
+      transform: scale(1); /* Volta ao tamanho original */
+      opacity: 1;
+      text-shadow: 0 0 10px #fff, 0 0 20px #32CD32;
+    }
+  }
+  
   
   .text1-descricao-page3 {
     text-align: center;
     font-size: 1.2em;
   }
   /* Responsividade */
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
     .text h1.text-titulo {
       font-size: 2.5em;
     }
@@ -159,7 +217,7 @@ body {
     }
     .text1-page3 {
         width: 70%; /* Reduz a largura do texto em telas menores */
-        left: 50%;
+        left: 10%;
         transform: translateX(-50%);
       }
   
@@ -198,7 +256,7 @@ body {
     }
     .text1-page3 {
         width: 80%; /* Reduz ainda mais a largura do texto */
-        left: 50%;
+        left: 7%;
         transform: translateX(-50%);
       }
   
@@ -220,6 +278,11 @@ body {
   }
   
   @media (max-width: 480px) {
+    .text1-page2, .text2-page2 {
+        width: 100%; 
+        left: 4%;
+        transform: translateX(0); /* Resetando qualquer transformação anterior */
+    }
     .text h1.text-titulo {
       font-size: 1.8em;
     }
@@ -233,15 +296,12 @@ body {
     }
   
     .text1-page2 h1, .text2-page2 h1 {
-      font-size: 1.5em;
+      font-size: 1.2em;
     }
-  
-    .text1-page2 p, .text2-page2 p {
-      font-size: 0.9em;
-    }
+    
     .text1-page3 {
         width: 90%; /* Ajusta a largura para dispositivos muito pequenos */
-        left: 50%;
+        left: 5%;
         transform: translateX(-50%);
         font-size: 1.2em; /* Ajusta o tamanho da fonte para dispositivos menores */
       }
@@ -262,3 +322,31 @@ body {
       width: 95%;
     }
   }
+  @media (max-width: 375px) {
+    .text1-page2, .text2-page2 {
+        width: 95%; 
+        left: 2%;
+        transform: translateX(0); /* Resetando qualquer transformação anterior */
+    }
+    .text1-page2 h1, .text2-page2 h1 {
+        font-size: 1em;
+      }
+      .text1-page2 p, .text2-page2 p {
+        font-size: 0.8em;
+      }
+      .text1-page3 {
+        width: 95%; /* Ajusta a largura para dispositivos muito pequenos */
+        left: 2%;
+        transform: translateX(-50%);
+        font-size: 1.2em; /* Ajusta o tamanho da fonte para dispositivos menores */
+        margin-bottom: 10%;
+      }
+      .h1-page3 {
+        font-size: 1.5em;
+      }
+    
+      .h3-page3 {
+        font-size: 0.7em;
+      }
+  }
+  
