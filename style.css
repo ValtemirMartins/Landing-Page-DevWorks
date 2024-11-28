@@ -21,7 +21,7 @@ body {
     left: 0;
     z-index: 1;
     opacity: 0; /* Inicialmente invisível */
-    transition: opacity 2s ease-in-out;
+    transition: opacity 4s ease-in-out;
 }
 
 .video.loaded {
@@ -56,7 +56,7 @@ body {
     width: 75%;
     opacity: 0; /* Começa invisível */
     transform: translateX(-100%); /* Começa fora da tela à esquerda */
-    animation: slideIn 2.5s ease-out forwards; /* Aplica a animação */
+    animation: slideIn 3s ease-out forwards; /* Aplica a animação */
   }
   
   @keyframes slideIn {
