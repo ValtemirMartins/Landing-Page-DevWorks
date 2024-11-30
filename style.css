@@ -575,7 +575,7 @@ h4 {
 
   .text1-page2,
   .text2-page2 {
-    font-size: 0.9em;
+    font-size: 1em;
     width: 100%;
     left: 4%;
     transform: translateX(0);
@@ -592,7 +592,7 @@ h4 {
   }
 
   .text p {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 
   .text1-page2 h1,
@@ -629,11 +629,10 @@ h4 {
   .page4 {
     padding: 10px 0;
   }
-
   .text-left h1.text-titulo {
     font-size: 1.8em;
   }
-
+  
   .text-left h2 {
     font-size: 1.5em;
   }
@@ -643,7 +642,7 @@ h4 {
   }
 
   .contact-form {
-    padding: 15px;
+    padding: 10px;
   }
 
   .contact-form h3 {
@@ -662,7 +661,7 @@ h4 {
   }
 
   .icon-page4 {
-    height: 30px;
+    height:80px;
     gap: 3px;
   }
 }
